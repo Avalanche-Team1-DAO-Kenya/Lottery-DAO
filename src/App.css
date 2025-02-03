@@ -1,19 +1,19 @@
 .app-container {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-    color: #ffffff;
-  }
-  
-  .main-content {
-    flex: 1;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-  }
-  
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: #ffffff;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  width: 100%;
+  margin: 0;
+  max-width: none;
+}
+
   * {
     margin: 0;
     padding: 0;
