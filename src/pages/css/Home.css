@@ -1,5 +1,5 @@
 :root {
-  --bg-primary: #0a0a1a;
+  --bg-primary:  #1a1a2e;
   --text-primary: #e0e0ff;
   --neon-gold: #ffd700;
   --neon-orange: #ff6b00;
@@ -15,11 +15,6 @@
 
 
 
-/* #root, .App, .home-container {
-  width: 100%;
-  max-width: 100vw;
-  overflow-x: hidden;
-} */
 
 .home-container {
   background-color: var(--bg-primary);
@@ -53,41 +48,34 @@
 
 .particle {
   position: absolute;
-  width: 2px;
-  height: 2px;
-  background-color: rgba(255, 255, 255, 0.3);
+  width: var(--size);
+  height: var(--size);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
   border-radius: 50%;
-  animation: particle-drift 10s infinite cubic-bezier(0.42, 0, 0.58, 1);
-  opacity: 0.5;
+  animation: particle-float var(--speed) infinite linear;
+  filter: blur(1px);
 }
 
-@keyframes particle-drift {
+
+@keyframes particle-float {
   0% {
-    transform: translateY(0) translateX(0) rotate(0deg);
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 0.8;
   }
   100% {
-    transform: translateY(100vh) translateX(50px) rotate(360deg);
+    transform: translateY(-100vh) translateX(50px) scale(0.2);
+    opacity: 0;
   }
 }
 
 
 
-/* Scroll Progress Indicator */
-/* .scroll-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 4px;
-  background: linear-gradient(
-    to right, 
-    var(--neon-gold), 
-    var(--neon-orange)
-  );
-  z-index: 1000;
-  transition: width 0.2s ease;
-} */
-
-/* Hero Section Styling */
 .hero-section {
   display: flex;
   flex-direction: column;

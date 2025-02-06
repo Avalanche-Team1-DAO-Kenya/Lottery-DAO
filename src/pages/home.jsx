@@ -81,14 +81,21 @@ const Home = () => {
   return (
     <div className="home-container">
       <div className="particles">
-        {[...Array(30)].map((_, i) => (
-          <div key={i} className="particle" style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-            animationDelay: `${Math.random() * 5}s`
-          }} />
-        ))}
-      </div>
+          {[...Array(30)].map((_, i) => (
+            <div
+              key={i}
+              className="particle"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 5}s`,
+                '--size': `${Math.random() * 10 + 5}px`,  
+                '--speed': `${Math.random() * 3 + 2}s`,  
+              }}
+            />
+          ))}
+       </div>
+
 
       <div className="scroll-progress" style={{ width: `${scrollProgress}%` }} />
 
