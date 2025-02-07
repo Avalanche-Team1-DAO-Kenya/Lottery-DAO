@@ -261,20 +261,21 @@
   position: relative;
   background: rgba(20, 20, 50, 0.6);
   border-radius: 12px;
-  padding: 1.5rem;
-  overflow: hidden;
+  padding: 2rem;
+  margin: 1rem;
   transition: all 0.3s ease;
-  transform: translateY(20px);
-  opacity: 0;
-  animation: feature-reveal 0.6s forwards;
-  animation-delay: var(--delay);
+  box-shadow: 0 0 15px rgba(255, 107, 0, 0.3); /* Card glowing effect */
+  overflow: hidden;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-@keyframes feature-reveal {
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+.feature-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(255, 107, 0, 0.5); /* Hover glow effect */
 }
 
 .feature-card .card-glow {
@@ -299,6 +300,16 @@
 .feature-card h3 {
   color: var(--neon-gold);
   margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+}
+
+.feature-card p {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  text-align: center;
+  opacity: 0.9;
 }
 
 .hover-reveal {
@@ -312,6 +323,21 @@
 .feature-card:hover .hover-reveal {
   opacity: 1;
 }
+
+.hover-reveal .learn-more {
+  font-size: 1rem;
+  color: rgba(255, 107, 0, 0.8);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.feature-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  padding-top: 3rem;
+}
+
 
 .learn-more {
   color: var(--accent-blue);
@@ -327,6 +353,7 @@
     rgba(20, 20, 50, 0.98)
   );
   padding: 4rem 2rem;
+  overflow: hidden;
 }
 
 .testimonials-grid {
@@ -337,16 +364,25 @@
 
 .testimonial-card {
   position: relative;
-  background: rgba(20, 20, 50, 0.6);
+  background: rgba(20, 20, 50, 0.8);
   border-radius: 12px;
   padding: 1.5rem;
-  transition: all 0.3s ease;
   overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2); /* Light screen border effect */
+  background: rgba(20, 20, 50, 0.7);
+  animation: screen-flicker 1s infinite; /* Flickering animation */
+  z-index: 1;
+}
+
+@keyframes screen-flicker {
+  0%, 100% { opacity: 0.98; }
+  50% { opacity: 0.9; }
 }
 
 .testimonial-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(255, 107, 0, 0.2);
+  box-shadow: 0 0 25px rgba(255, 107, 0, 0.4); /* More intense glow */
 }
 
 .testimonial-rating {
@@ -357,12 +393,19 @@
 .star-icon {
   color: var(--neon-gold);
   margin-right: 0.25rem;
+  animation: star-glow 1.5s infinite alternate; /* Glowing star animation */
+}
+
+@keyframes star-glow {
+  0% { color: var(--neon-gold); }
+  100% { color: rgba(255, 215, 0, 1); }
 }
 
 .testimonial-content {
   font-style: italic;
   color: var(--text-primary);
   margin-bottom: 1rem;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.5); /* Adding a glowing text effect */
 }
 
 .testimonial-author {
@@ -372,6 +415,9 @@
 
 .testimonial-author strong {
   color: var(--neon-gold);
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .testimonial-author span {
@@ -387,15 +433,37 @@
   height: 200%;
   background: radial-gradient(
     circle at center, 
-    rgba(255, 215, 0, 0.1), 
+    rgba(255, 215, 0, 0.2), 
     transparent 50%
   );
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.4s ease;
+  z-index: -1;
 }
 
 .testimonial-card:hover .testimonial-glow {
   opacity: 1;
+}
+
+/* TV screen-like border */
+.testimonial-card:before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: rgba(0, 255, 255, 0.2);
+  border-radius: 14px;
+  z-index: -2;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+  animation: tv-border 2s infinite alternate; /* Border flicker */
+}
+
+@keyframes tv-border {
+  0% { box-shadow: 0 0 15px rgba(0, 255, 255, 0.5); }
+  50% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.6); }
+  100% { box-shadow: 0 0 15px rgba(0, 255, 255, 0.5); }
 }
 
 /* FAQ Section */

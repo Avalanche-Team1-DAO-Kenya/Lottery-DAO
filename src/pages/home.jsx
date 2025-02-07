@@ -143,17 +143,20 @@ const Home = () => {
 
       <section className="feature-section">
         <div className="grid-pattern" />
-        {features.map((feature, index) => (
-          <div key={index} className="feature-card" style={{ '--delay': `${index * 0.1}s` }}>
-            <div className="card-glow" />
-            <h3>{feature.title}</h3>
-            <p>{feature.description}</p>
-            <div className="hover-reveal">
-              <span className="learn-more">Explore Feature →</span>
+        <div className="feature-cards-container">
+          {features.map((feature, index) => (
+            <div key={index} className="feature-card" style={{ '--delay': `${index * 0.1}s` }}>
+              <div className="card-glow" />
+              <h3>{feature.title}</h3>
+              <p>{feature.description}</p>
+              <div className="hover-reveal">
+                {/* <span className="learn-more">Explore Feature →</span> */}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </section>
+
 
       <section className="testimonials-section">
         <h2 className="section-title">Player Experiences</h2>

@@ -1,0 +1,238 @@
+/* Cyber Theme Variables */
+:root {
+    --cyber-bg: #0a192f;
+    --cyber-primary: #ffd700;
+    --cyber-secondary: #4a90e2;
+    --cyber-accent: #c2185b;
+    --cyber-text: #e0e0e0;
+    --grid-size: 30px;
+    --animation-speed: 2s;
+  }
+  
+  /* Base Styles */
+  body {
+    background-color: var(--cyber-bg);
+    color: var(--cyber-text);
+    font-family: 'Share Tech Mono', monospace;
+    margin: 0;
+    overflow-x: hidden;
+  }
+  
+  /* Grid Animation */
+  .grid-overlays {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      linear-gradient(var(--cyber-secondary) 1px, transparent 1px),
+      linear-gradient(90deg, var(--cyber-secondary) 1px, transparent 1px);
+    background-size: var(--grid-size) var(--grid-size);
+    opacity: 0.1;
+    animation: grid-pulse 4s infinite;
+    pointer-events: none;
+  }
+  
+  @keyframes grid-pulse {
+    0%, 100% { opacity: 0.1; }
+    50% { opacity: 0.15; }
+  }
+  
+  /* Node Animation */
+  .node-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(circle, var(--cyber-primary) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.1;
+    animation: node-pulse 3s infinite;
+    pointer-events: none;
+  }
+  
+  @keyframes node-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.1; }
+    50% { transform: scale(1.1); opacity: 0.2; }
+  }
+  
+  /* Holographic Coin */
+  .hologram-coin {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    background: radial-gradient(circle at center, var(--cyber-primary) 0%, transparent 70%);
+    border: 2px solid var(--cyber-primary);
+    border-radius: 50%;
+    position: relative;
+    animation: coin-spin 10s linear infinite;
+  }
+  
+  .hologram-coin::before {
+    content: '₿';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 80px;
+    color: var(--cyber-primary);
+    text-shadow: 0 0 20px var(--cyber-primary);
+  }
+  
+  @keyframes coin-spin {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(360deg); }
+  }
+  
+  /* Future Text Styles */
+  .future-text {
+    font-size: 2.5rem;
+    color: var(--cyber-primary);
+    text-align: center;
+    text-shadow: 0 0 10px var(--cyber-primary);
+    margin: 2rem 0;
+    opacity: 0;
+    animation: text-fade-in 1s forwards;
+  }
+  
+  .scroll-text {
+    font-size: 1.2rem;
+    color: var(--cyber-secondary);
+    text-align: center;
+    animation: text-scroll 15s linear infinite;
+    white-space: nowrap;
+  }
+  
+  @keyframes text-scroll {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+  }
+  
+  /* Cyber Button */
+  .cyber-button {
+    background: transparent;
+    border: 2px solid var(--cyber-primary);
+    color: var(--cyber-primary);
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .cyber-button:hover {
+    background: var(--cyber-primary);
+    color: var(--cyber-bg);
+    text-shadow: none;
+    box-shadow: 0 0 20px var(--cyber-primary);
+  }
+  
+  .cyber-button-glitch {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--cyber-primary);
+    transform: translateX(-100%);
+    animation: button-glitch 2s infinite;
+  }
+  
+  @keyframes button-glitch {
+    0% { transform: translateX(-100%); }
+    10% { transform: translateX(100%); }
+    11% { transform: translateX(-100%); }
+  }
+  
+  /* Winner Cards */
+.winners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+  }
+  
+  .winner-card {
+    background: rgba(10, 25, 47, 0.8);
+    border: 1px solid var(--cyber-primary);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    padding: 1.5rem;
+    text-align: center;
+    color: var(--cyber-text);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+  }
+  
+  .winner-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px var(--cyber-primary);
+  }
+  
+  .winner-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent 0%, rgba(255, 215, 0, 0.1) 50%, transparent 100%);
+    animation: card-shine 3s infinite;
+  }
+  
+  @keyframes card-shine {
+    0% { left: -100%; }
+    50% { left: 100%; }
+    100% { left: -100%; }
+  }
+  
+  /* Winner Info */
+  .winner-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--cyber-primary);
+  }
+  
+  .winner-amount {
+    font-size: 1.2rem;
+    color: var(--cyber-secondary);
+    margin-top: 0.5rem;
+  }
+  
+  /* No Winners Yet Display */
+  .no-winners {
+    text-align: center;
+    padding: 3rem;
+  }
+  
+  .no-winners h2 {
+    font-size: 2rem;
+    color: var(--cyber-primary);
+    text-shadow: 0 0 10px var(--cyber-primary);
+    animation: text-glow 1.5s infinite alternate;
+  }
+  
+  @keyframes text-glow {
+    0% { text-shadow: 0 0 10px var(--cyber-primary); }
+    100% { text-shadow: 0 0 20px var(--cyber-primary); }
+  }
+  
+  .no-winners p {
+    font-size: 1.2rem;
+    color: var(--cyber-secondary);
+    opacity: 0.8;
+    margin-top: 0.5rem;
+  }
+  
+  /* Cyber-themed button for interaction */
+  .no-winners .cyber-button {
+    margin-top: 1.5rem;
+    display: inline-block;
+  }
+  

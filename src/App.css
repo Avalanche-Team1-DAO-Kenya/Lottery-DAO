@@ -13,6 +13,32 @@
   margin: 0;
   max-width: none;
 }
+:root {
+  --cyber-secondary: rgba(0, 255, 255, 0.2); /* Default cyber color */
+  --grid-size: 50px; /* Adjust grid spacing */
+}
+
+.grid-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(var(--cyber-secondary) 1px, transparent 1px),
+    linear-gradient(90deg, var(--cyber-secondary) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size);
+  opacity: 0.3; /* Increased opacity for testing */
+  pointer-events: none;
+  z-index: 0; /* Make sure it's on top of the background */
+  animation: grid-pulse 4s infinite;
+}
+
+@keyframes grid-pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.5; } /* Increased opacity during pulse */
+}
+
 
   * {
     margin: 0;
