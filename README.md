@@ -106,7 +106,6 @@ npm run dev
 
 2. **👛 Wallet Integration**
    - Smooth MetaMask/Core integration
-   - 
 3. **🎮 Lottery Interface**
    - Browse active lotteries and ticket options
    - User-friendly ticket purchasing system
@@ -139,7 +138,7 @@ npm run dev
    - Economical for both users and operators
 
 ## 🔮 Vision
-Lottery-DAO represents the future of decentralized gaming. By combining blockchain transparency with user-friendly design, we're creating an inclusive platform that appeals to both crypto veterans and newcomers. Stay tuned for exciting new features and community initiatives!
+Lottery-DAO represents the future of decentralized lottery. By combining blockchain transparency with user-friendly design, we're creating an inclusive platform that appeals to both crypto veterans and newcomers. Stay tuned for exciting new features and community initiatives!
 
 ## 📊 Project Status
 ![Development Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge)
